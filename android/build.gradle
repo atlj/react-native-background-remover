@@ -90,5 +90,7 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  implementation 'com.google.mlkit:segmentation-selfie:16.0.0-beta4' // <- MLKit dependency
 }
 
