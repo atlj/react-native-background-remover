@@ -10798,6 +10798,7 @@ __metadata:
     pod-install: ^0.1.0
     react: 18.2.0
     react-native: 0.73.3
+    react-native-image-picker: ^7.1.0
   languageName: unknown
   linkType: soft
 
@@ -10862,6 +10863,16 @@ __metadata:
   bin:
     bob: bin/bob
   checksum: 258da6ecd03be52cc05a3e3a7c481890c7c0b7b62ae9f263c5f3d6fafeae95bd9445ad2f6c2513f7f4e4569eee935a18ae94c7491f58d6916af515c88de9e0a1
+  languageName: node
+  linkType: hard
+
+"react-native-image-picker@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "react-native-image-picker@npm:7.1.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 7f5c16dbcde719367e8fea7e05dd0ca8cb4cb4d163ce3fd093440fde69ff536dfb12f8b14a82b3d306785b7a5609e99042a981050631aa91cffb0a410c056ef9
   languageName: node
   linkType: hard
 

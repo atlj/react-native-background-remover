@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.3"
+    "react-native": "0.73.3",
+    "react-native-image-picker": "^7.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
