@@ -17,6 +17,6 @@ const BackgroundRemover = NativeModules.BackgroundRemover
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return BackgroundRemover.multiply(a, b);
+export function removeBackground(imageURI: string): Promise<string> {
+  return BackgroundRemover.removeBackground(imageURI);
 }
