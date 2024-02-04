@@ -4,9 +4,12 @@ import { StyleSheet, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { Button } from 'react-native';
 import { Image } from 'react-native';
+import { removeBackground } from 'react-native-background-remover';
+import { ActivityIndicator } from 'react-native';
 
 export default function App() {
   const [imageURI, setImageURI] = React.useState<string | null>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function selectImage() {
     const imagePickerResponse = await launchImageLibrary({
@@ -28,15 +31,39 @@ export default function App() {
     setImageURI(null);
   }
 
-  function removeSelectionBackground() {
-    // TODO: Implement background removal
+  async function removeSelectionBackground() {
+    if (!imageURI) {
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const backgroundRemovedImageURI = await removeBackground(imageURI);
+      setImageURI(backgroundRemovedImageURI);
+    } catch (error) {
+      console.error('Failed to remove background', error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
     <View style={styles.container}>
       {imageURI ? (
         <View style={styles.container}>
-          <Image source={{ uri: imageURI }} style={styles.image} />
+          <View style={styles.imageWrapper}>
+            {isLoading ? (
+              <View>
+                <ActivityIndicator size="large" />
+              </View>
+            ) : (
+              <Image
+                source={{ uri: imageURI }}
+                style={StyleSheet.absoluteFillObject}
+              />
+            )}
+          </View>
           <View style={styles.buttonContainer}>
             <Button
               title="Clear Selection"
@@ -67,8 +94,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 36,
   },
-  image: {
+  imageWrapper: {
     width: '100%',
     height: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
