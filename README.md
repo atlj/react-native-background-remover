@@ -1,21 +1,20 @@
 # react-native-background-remover
 
-This package removes background
+This package is a React Native package that uses MLKit on Android and Vision on iOS to remove the background from an image.
 
 ## Installation
 
 ```sh
-npm install react-native-background-remover
+yarn add react-native-background-remover
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'react-native-background-remover';
+import { removeBackground } from 'react-native-background-remover';
 
-// ...
-
-const result = await multiply(3, 7);
+// You can get the imageURI from the camera or the gallery.
+const backgroundRemovedImageURI = removeBackground(imageURI);
 ```
 
 ## Contributing
