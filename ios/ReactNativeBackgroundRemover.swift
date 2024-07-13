@@ -1,12 +1,11 @@
 import Vision
 import CoreImage
 
-@objc(BackgroundRemover)
-class BackgroundRemover: NSObject {
+public class BackgroundRemoverSwift: NSObject {
 
     @available(iOS 15.0, *)
     @objc
-    func removeBackground(_ imageURI: String, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock)->Void {
+    public func removeBackground(_ imageURI: String, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock)->Void {
         let url = URL(string: imageURI)!
         let originalImage = CIImage(contentsOf: url, options: [.applyOrientationProperty: true])!
         let imageRequestHandler = VNImageRequestHandler(ciImage: originalImage)
@@ -40,6 +39,5 @@ class BackgroundRemover: NSObject {
                 reject("Error", "Error removing background", error)
             }
         }
-
         }
 }

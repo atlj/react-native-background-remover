@@ -6,8 +6,15 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const BackgroundRemover = NativeModules.BackgroundRemover
-  ? NativeModules.BackgroundRemover
+// @ts-expect-error
+const isTurboModuleEnabled = global.__turboModuleProxy != null;
+
+const BackgroundRemoverModule = isTurboModuleEnabled
+  ? require('./NativeBackgroundRemover').default
+  : NativeModules.BackgroundRemover;
+
+const BackgroundRemover = BackgroundRemoverModule
+  ? BackgroundRemoverModule
   : new Proxy(
       {},
       {

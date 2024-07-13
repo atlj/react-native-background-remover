@@ -12,7 +12,6 @@ import android.os.Build
 import android.provider.MediaStore
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.segmentation.Segmentation
@@ -23,9 +22,8 @@ import java.io.FileOutputStream
 import java.net.URI
 import kotlin.math.pow
 
-
-class BackgroundRemoverModule(reactContext: ReactApplicationContext) :
-  ReactContextBaseJavaModule(reactContext) {
+class BackgroundRemoverModule internal constructor(context: ReactApplicationContext) :
+  BackgroundRemoverSpec(context) {
   private var segmenter: Segmenter? = null
 
   override fun getName(): String {
@@ -33,7 +31,7 @@ class BackgroundRemoverModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun removeBackground(imageURI: String, promise: Promise) {
+  override fun removeBackground(imageURI: String, promise: Promise) {
     val segmenter = this.segmenter ?: createSegmenter()
     val image = getImageBitmap(imageURI)
 
