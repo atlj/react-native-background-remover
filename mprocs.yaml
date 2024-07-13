@@ -1,0 +1,8 @@
+procs:
+  Metro:
+    shell: yarn start
+    cwd: ./example
+  Pods:
+    shell: pod install
+    cwd: ./example/ios
+    autostart: false
