@@ -7,6 +7,16 @@
 
 RCT_EXPORT_MODULE()
 
+- (id)init {
+    self = [super init];
+ 
+    if (self) {
+        backgroundRemover = [[BackgroundRemoverSwift alloc] init];
+    }
+ 
+    return self;
+}
+
 RCT_EXPORT_METHOD(removeBackground:(NSString *)imageURI
                  resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)

@@ -24,6 +24,26 @@ const BackgroundRemover = BackgroundRemoverModule
       }
     );
 
-export function removeBackground(imageURI: string): Promise<string> {
-  return BackgroundRemover.removeBackground(imageURI);
+/**
+ * Removes the background from an image.
+ * Note: This method isn't usable on iOS simulators, you need to have a real device.
+ * @returns The URI of the image with the background removed.
+ * @returns the original URI if you are using an iOS simulator.
+ * @throws Error if the iOS device is not at least on iOS 15.0.
+ * @throws Error if the image could not be processed for an unknown reason.
+ */
+export async function removeBackground(imageURI: string): Promise<string> {
+  try {
+    const result: string = await BackgroundRemover.removeBackground(imageURI);
+    return result;
+  } catch (error) {
+    if (error instanceof Error && error.message === 'SimulatorError') {
+      console.warn(
+        '[ReactNativeBackgroundRemover]: You need to have a real device. This feature is not available on simulators. Returning the original image URI.'
+      );
+      return imageURI;
+    }
+
+    throw error;
+  }
 }
