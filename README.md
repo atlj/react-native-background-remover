@@ -2,6 +2,10 @@
 
 This package is a React Native package that uses MLKit on Android and Vision on iOS to remove the background from an image.
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/ce62728f-69fb-46d2-8016-7d03f751708e" width="400" />
+</div>
+
 ## Installation
 
 ```sh
