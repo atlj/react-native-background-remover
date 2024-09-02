@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
+import { Int32 } from 'react-native/Libraries/Types/CodegenTypes';
 
 const LINKING_ERROR =
   `The package 'react-native-background-remover' doesn't seem to be linked. Make sure: \n\n` +
@@ -32,9 +33,9 @@ const BackgroundRemover = BackgroundRemoverModule
  * @throws Error if the iOS device is not at least on iOS 15.0.
  * @throws Error if the image could not be processed for an unknown reason.
  */
-export async function removeBackground(imageURI: string): Promise<string> {
+export async function removeBackground(imageURI: string, redValue: Int32, greenValue: Int32, blueValue: Int32): Promise<string> {
   try {
-    const result: string = await BackgroundRemover.removeBackground(imageURI);
+    const result: string = await BackgroundRemover.removeBackground(imageURI, redValue, greenValue, blueValue);
     return result;
   } catch (error) {
     if (error instanceof Error && error.message === 'SimulatorError') {

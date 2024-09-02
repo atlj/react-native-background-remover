@@ -1,5 +1,5 @@
 #import "ReactNativeBackgroundRemover.h"
-#import "ReactNativeBackgroundRemover-Swift.h"
+#import "ReactNativeBackgroundRemover/ReactNativeBackgroundRemover-Swift.h"
 
 @implementation BackgroundRemover {
   BackgroundRemoverSwift *backgroundRemover;
@@ -18,10 +18,18 @@ RCT_EXPORT_MODULE()
 }
 
 RCT_EXPORT_METHOD(removeBackground:(NSString *)imageURI
-                 resolve:(RCTPromiseResolveBlock)resolve
+                  redValue:(NSInteger)redValue
+                  greenValue:(NSInteger)greenValue
+                  blueValue:(NSInteger)blueValue
+                  resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    [backgroundRemover removeBackground:imageURI resolve:resolve reject:reject];
+    [backgroundRemover removeBackground:imageURI
+                               redValue:redValue
+                             greenValue:greenValue
+                              blueValue:blueValue
+                                resolve:resolve
+                                 reject:reject];
 }
 
 // Don't compile this code when we build for the old architecture.
