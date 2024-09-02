@@ -1,5 +1,5 @@
 #import "ReactNativeBackgroundRemover.h"
-#import "ReactNativeBackgroundRemover-Swift.h"
+#import "ReactNativeBackgroundRemover/ReactNativeBackgroundRemover-Swift.h"
 
 @implementation BackgroundRemover {
   BackgroundRemoverSwift *backgroundRemover;
