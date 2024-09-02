@@ -7,5 +7,5 @@ import com.facebook.react.bridge.Promise
 abstract class BackgroundRemoverSpec internal constructor(context: ReactApplicationContext) :
   ReactContextBaseJavaModule(context) {
 
-  abstract fun removeBackground(imageURI: String, promise: Promise)
+  abstract fun removeBackground(imageURI: String, redValue: Int, greenValue: Int, blueValue: Int, promise: Promise)
 }

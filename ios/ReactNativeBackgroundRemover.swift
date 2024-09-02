@@ -4,7 +4,7 @@ import CoreImage
 public class BackgroundRemoverSwift: NSObject {
     
     @objc
-    public func removeBackground(_ imageURI: String, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock)->Void {
+    public func removeBackground(_ imageURI: String, redValue: Int, greenValue: Int, blueValue: Int, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock)->Void {
         #if targetEnvironment(simulator)
         reject("BackgroundRemover", "SimulatorError", NSError(domain: "BackgroundRemover", code: 2))
             return
@@ -31,11 +31,18 @@ public class BackgroundRemoverSwift: NSObject {
                     let scaleY = originalImage.extent.height / maskImage.extent.height
                     maskImage = maskImage.transformed(by: .init(scaleX: scaleX, y: scaleY))
                     
-                    let maskedImage = originalImage.applyingFilter("CIBlendWithMask", parameters: [kCIInputMaskImageKey: maskImage])
+                    // Create a solid color background image
+                    let backgroundColor = CIColor(red: CGFloat(redValue) / 255.0, green: CGFloat(greenValue) / 255.0, blue: CGFloat(blueValue) / 255.0)
+                    let backgroundImage = CIImage(color: backgroundColor).cropped(to: originalImage.extent)
+                    
+                    let maskedImage = originalImage.applyingFilter("CIBlendWithMask", parameters: [kCIInputImageKey: originalImage,kCIInputMaskImageKey: maskImage])
+                    
+                    // Combine the masked image with the background
+                    let finalImage = maskedImage.composited(over: backgroundImage)
                     
                     // Save the masked image to a temporary file
                     let tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(url.lastPathComponent)
-                    let uiImage = UIImage(ciImage: maskedImage)
+                    let uiImage = UIImage(ciImage: finalImage)
                     if let data = uiImage.pngData() {
                         try data.write(to: tempURL)
                         resolve(tempURL.absoluteString)

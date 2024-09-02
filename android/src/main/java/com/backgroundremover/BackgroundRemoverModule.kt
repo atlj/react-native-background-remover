@@ -31,7 +31,7 @@ class BackgroundRemoverModule internal constructor(context: ReactApplicationCont
   }
 
   @ReactMethod
-  override fun removeBackground(imageURI: String, promise: Promise) {
+  override fun removeBackground(imageURI: String, redValue: Int, greenValue: Int, blueValue: Int, promise: Promise) {
     val segmenter = this.segmenter ?: createSegmenter()
     val image = getImageBitmap(imageURI)
 
@@ -45,14 +45,19 @@ class BackgroundRemoverModule internal constructor(context: ReactApplicationCont
 
       for (y in 0 until result.height) {
         for (x in 0 until result.width) {
-          val alpha = maskBuffer.getFloat().pow(4)
-          mask.setPixel(x, y, Color.argb((alpha * 255).toInt(), 0, 0, 0))
+          val alpha = maskBuffer.getFloat()
+          if (alpha < 0.5f) {
+            image.setPixel(x, y, Color.rgb(redValue, greenValue, blueValue))
+          }
+          else {
+            mask.setPixel(x, y, Color.argb((alpha * 255).toInt(), 255, 255, 255))
+          }
         }
       }
 
       val paint = Paint(Paint.ANTI_ALIAS_FLAG)
       paint.setXfermode(PorterDuffXfermode(PorterDuff.Mode.DST_IN))
-      val canvas = Canvas(image)
+      val canvas = Canvas()
       canvas.drawBitmap(mask, 0f, 0f, paint)
 
       val fileName = URI(imageURI).path.split("/").last()
