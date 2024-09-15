@@ -1,0 +1,41 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "pipeline": {
+    "lint": {
+      "inputs": ["**/*.ts", "**/*.tsx", "**/*.js"]
+    },
+    "typecheck": {
+      "inputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "build:android": {
+      "inputs": [
+        "packages/react-native-background-remover/package.json",
+        "packages/react-native-background-remover/android",
+        "packages/react-native-background-remover/!android/build",
+        "packages/react-native-background-remover/src/*.ts",
+        "packages/react-native-background-remover/src/*.tsx",
+        "apps/bare/package.json",
+        "apps/bare/android",
+        "!apps/bare/android/.gradle",
+        "!apps/bare/android/build",
+        "!apps/bare/android/app/build"
+      ],
+      "outputs": []
+    },
+    "build:ios": {
+      "inputs": [
+        "packages/react-native-background-remover/package.json",
+        "packages/react-native-background-remover/*.podspec",
+        "packages/react-native-background-remover/ios",
+        "packages/react-native-background-remover/src/*.ts",
+        "packages/react-native-background-remover/src/*.tsx",
+        "apps/bare/package.json",
+        "apps/bare/ios",
+        "!apps/bare/ios/build",
+        "!apps/bare/ios/Pods"
+      ],
+      "outputs": []
+    }
+  }
+}

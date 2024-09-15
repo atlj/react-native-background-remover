@@ -9,7 +9,13 @@ module.exports = {
   },
   dependencies: {
     [pak.name]: {
-      root: path.join(__dirname, '..', '..', 'packages', 'react-native-background-remover'),
+      root: path.join(
+        __dirname,
+        '..',
+        '..',
+        'packages',
+        'react-native-background-remover'
+      ),
     },
   },
 };

@@ -6,45 +6,25 @@
   ],
   "scripts": {
     "library": "yarn workspace react-native-background-remover",
-    "bare": "yarn workspace react-native-background-remover-bare-example"
+    "bare": "yarn workspace react-native-background-remover-bare-example",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix",
+    "typecheck": "yarn typecheck",
+    "build:android": "turbo run build:android",
+    "build:ios": "turbo run build:ios"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.0.2",
     "@evilmartians/lefthook": "^1.5.0",
+    "@react-native/eslint-config": "^0.73.1",
     "@release-it/conventional-changelog": "^5.0.0",
-    "commitlint": "^17.0.2",
-    "turbo": "^1.10.7"
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.0.3",
+    "turbo": "^1.10.7",
+    "typescript": "^5.2.2"
   },
   "packageManager": "yarn@4.5.0",
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native",
-      "prettier"
-    ],
-    "rules": {
-      "react/react-in-jsx-scope": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,
