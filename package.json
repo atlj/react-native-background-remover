@@ -5,7 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "library": "yarn workspace react-native-background-remover"
+    "library": "yarn workspace react-native-background-remover",
+    "bare": "yarn workspace react-native-background-remover-bare-example"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
@@ -14,7 +15,7 @@
     "commitlint": "^17.0.2",
     "turbo": "^1.10.7"
   },
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@4.5.0",
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
