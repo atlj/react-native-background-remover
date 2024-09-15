@@ -1,5 +1,6 @@
 {
   "name": "react-native-background-remover-monorepo",
+  "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -16,13 +17,15 @@
   "devDependencies": {
     "@evilmartians/lefthook": "^1.5.0",
     "@react-native/eslint-config": "^0.73.1",
-    "@release-it/conventional-changelog": "^5.0.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.0.3",
     "turbo": "^1.10.7",
     "typescript": "^5.2.2"
+  },
+  "resolutions": {
+    "@types/react": "^18.2.44"
   },
   "packageManager": "yarn@4.5.0",
   "prettier": {
