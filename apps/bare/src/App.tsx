@@ -6,6 +6,7 @@ import { Button } from 'react-native';
 import { Image } from 'react-native';
 import { removeBackground } from 'react-native-background-remover';
 import { ActivityIndicator } from 'react-native';
+import { Editor } from './components/Editor';
 
 export default function App() {
   const [imageURI, setImageURI] = React.useState<string | null>(null);
@@ -58,10 +59,7 @@ export default function App() {
                 <ActivityIndicator size="large" />
               </View>
             ) : (
-              <Image
-                source={{ uri: imageURI }}
-                style={StyleSheet.absoluteFillObject}
-              />
+              <Editor imageURI={imageURI} />
             )}
           </View>
           <View style={styles.buttonContainer}>
@@ -96,7 +94,7 @@ const styles = StyleSheet.create({
   },
   imageWrapper: {
     width: '100%',
-    height: '50%',
+    height: '60%',
     justifyContent: 'center',
     alignItems: 'center',
   },
