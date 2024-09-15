@@ -80,6 +80,8 @@ Note the `"fabric":true` and `"concurrentRoot":true` properties.
 
 Make sure your code passes TypeScript and ESLint. Run the following to verify:
 
+> Or alternatively, you can use the Expo example in apps/expo. Make sure to call `expo prebuild` while working with the Expo app.
+
 ```sh
 yarn typecheck
 yarn lint
