@@ -1,6 +1,6 @@
 procs:
-  Bare example metro:
-    shell: yarn bare start
+  Bare Example Metro: yarn bare start
+  Expo Example Metro: yarn expo start --port 8082
   Pods:
     shell: yarn bare pods
     autostart: false

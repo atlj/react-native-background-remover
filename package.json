@@ -7,7 +7,8 @@
   ],
   "scripts": {
     "library": "yarn workspace react-native-background-remover",
-    "bare": "yarn workspace react-native-background-remover-bare-example",
+    "bare": "yarn workspace bare-example",
+    "expo": "yarn workspace expo-example",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- --fix",
     "typecheck": "turbo run typecheck",
