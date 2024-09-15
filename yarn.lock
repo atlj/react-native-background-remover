@@ -6952,8 +6952,11 @@ __metadata:
   resolution: "expo-example@workspace:apps/expo"
   dependencies:
     "@babel/core": "npm:^7.20.0"
+    "@react-native/metro-config": "npm:0.74.85"
     "@types/react": "npm:~18.2.79"
+    babel-plugin-module-resolver: "npm:^5.0.0"
     expo: "npm:~51.0.28"
+    expo-image-picker: "npm:~15.0.7"
     expo-status-bar: "npm:~1.12.1"
     react: "npm:18.2.0"
     react-native: "npm:0.74.5"
@@ -6977,6 +6980,26 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 10/639602e4aa8e134ef367a672d36d28c7188ddaa1170fd112c1c221c7bdea4782a01035fde50c17420cbb9c43c61da4a80ea38696eb8daf8dcfa028e30bdf4063
+  languageName: node
+  linkType: hard
+
+"expo-image-loader@npm:~4.7.0":
+  version: 4.7.0
+  resolution: "expo-image-loader@npm:4.7.0"
+  peerDependencies:
+    expo: "*"
+  checksum: 10/dbd87fdbf3e50b8c459e5ea985bfd20d77462229e46edefbd62b68e1676416f8608c16cf09103c2fef1bd84ecf55a1fd48f38e1954a2dd535e6f9beef04785bb
+  languageName: node
+  linkType: hard
+
+"expo-image-picker@npm:~15.0.7":
+  version: 15.0.7
+  resolution: "expo-image-picker@npm:15.0.7"
+  dependencies:
+    expo-image-loader: "npm:~4.7.0"
+  peerDependencies:
+    expo: "*"
+  checksum: 10/6ebd8638ce41c13f63c51494d4c95a991eac31ef6625dc8c4fffa4ce4ccda3fa1bc0b4b3528995262435ddfa76080752ac7f6762c62c1122d7933a4ad85629f6
   languageName: node
   linkType: hard
 
