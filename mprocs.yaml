@@ -1,8 +1,6 @@
 procs:
-  Metro:
-    shell: yarn start
-    cwd: ./example
+  Bare example metro:
+    shell: yarn bare start
   Pods:
-    shell: pod install
-    cwd: ./example/ios
+    shell: yarn bare pods
     autostart: false

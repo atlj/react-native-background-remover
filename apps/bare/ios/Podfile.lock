@@ -1185,7 +1185,7 @@ PODS:
     - React-logger (= 0.74.3)
     - React-perflogger (= 0.74.3)
     - React-utils (= 0.74.3)
-  - ReactNativeBackgroundRemover (0.1.0):
+  - ReactNativeBackgroundRemover (0.2.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1266,7 +1266,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
-  - ReactNativeBackgroundRemover (from `../..`)
+  - ReactNativeBackgroundRemover (from `../../../packages/react-native-background-remover`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -1384,7 +1384,7 @@ EXTERNAL SOURCES:
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeBackgroundRemover:
-    :path: "../.."
+    :path: "../../../packages/react-native-background-remover"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1443,10 +1443,10 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 0c80752bceb80924cb8a4babc2a8e3ed70d41e87
   React-utils: a06061b3887c702235d2dac92dacbd93e1ea079e
   ReactCommon: f00e436b3925a7ae44dfa294b43ef360fbd8ccc4
-  ReactNativeBackgroundRemover: 7bc62c874bd512131a058f9b38cdc2559b316024
+  ReactNativeBackgroundRemover: 7c9f2b452754fb6ac6b25e468476e511b49ec2ca
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: 04f1db30bb810187397fa4c37dd1868a27af229c
 
-PODFILE CHECKSUM: 16c1b3c2c1d8624f5de36133533dfdbf7ed75a0b
+PODFILE CHECKSUM: f9792fb0df8c735cac7844d3094cb8706b699e69
 
 COCOAPODS: 1.15.2
