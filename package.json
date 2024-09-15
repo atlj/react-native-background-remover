@@ -9,7 +9,7 @@
     "bare": "yarn workspace react-native-background-remover-bare-example",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- --fix",
-    "typecheck": "yarn typecheck",
+    "typecheck": "turbo run typecheck",
     "build:android": "turbo run build:android",
     "build:ios": "turbo run build:ios"
   },
