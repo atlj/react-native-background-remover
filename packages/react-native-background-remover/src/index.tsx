@@ -6,7 +6,7 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-// @ts-expect-error
+// @ts-ignore
 const isTurboModuleEnabled = global.__turboModuleProxy != null;
 
 const BackgroundRemoverModule = isTurboModuleEnabled

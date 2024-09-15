@@ -1,8 +1,6 @@
 procs:
-  Metro:
-    shell: yarn start
-    cwd: ./example
+  Bare Example Metro: yarn bare start
+  Expo Example Metro: yarn expo start --port 8082
   Pods:
-    shell: pod install
-    cwd: ./example/ios
+    shell: yarn bare pods
     autostart: false

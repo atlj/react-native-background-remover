@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "react-native-background-remover-expo-example",
+    "slug": "react-native-background-remover-expo-example",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Select image to remove background"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.burak.guner.reactnativebackgroundremoverexpoexample"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.burak.guner.reactnativebackgroundremoverexpoexample"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

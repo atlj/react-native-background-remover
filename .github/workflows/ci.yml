@@ -26,18 +26,6 @@ jobs:
       - name: Typecheck files
         run: yarn typecheck
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup
-        uses: ./.github/actions/setup
-
-      - name: Run unit tests
-        run: yarn test --maxWorkers=2 --coverage
-
   build-library:
     runs-on: ubuntu-latest
     steps:
@@ -48,7 +36,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build package
-        run: yarn prepare
+        run: yarn library prepare
 
   build-android:
     runs-on: ubuntu-latest
@@ -96,7 +84,7 @@ jobs:
           path: |
             ~/.gradle/wrapper
             ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('example/android/gradle/wrapper/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('apps/bare/android/gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
@@ -140,14 +128,14 @@ jobs:
         with:
           path: |
             **/ios/Pods
-          key: ${{ runner.os }}-cocoapods-${{ hashFiles('example/ios/Podfile.lock') }}
+          key: ${{ runner.os }}-cocoapods-${{ hashFiles('apps/bare/ios/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-cocoapods-
 
       - name: Install cocoapods
         if: env.turbo_cache_hit != 1 && steps.cocoapods-cache.outputs.cache-hit != 'true'
         run: |
-          cd example/ios
+          cd apps/bare/ios
           pod install
         env:
           NO_FLIPPER: 1

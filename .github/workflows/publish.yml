@@ -20,9 +20,9 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Prepare
-        run: yarn prepare
+        run: cd packages/react-native-background-remover && yarn prepare
 
       - name: Publish
-        run: npm publish --provenance --access public
+        run: cd packages/react-native-background-remover && npm publish --provenance --access public
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
