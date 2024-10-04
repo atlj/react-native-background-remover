@@ -41,10 +41,7 @@ public class BackgroundRemoverSwift: NSObject {
                     let scaleX = originalImage.extent.width / maskImage.extent.width
                     let scaleY = originalImage.extent.height / maskImage.extent.height
                     
-                    // Avoid up-scaling if mask dimensions are too small
-                    if scaleX > 1 || scaleY > 1 {
-                        maskImage = maskImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
-                    }
+                    maskImage = maskImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
                     
                     let maskedImage = originalImage.applyingFilter("CIBlendWithMask", parameters: [kCIInputMaskImageKey: maskImage])
                     
